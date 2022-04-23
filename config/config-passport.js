@@ -3,7 +3,6 @@ const passportJWT = require("passport-jwt");
 const User = require("../service/schemas/user");
 require("dotenv").config();
 const ExtractJWT = passportJWT.ExtractJwt;
-const Strategy = passportJWT.Strategy;
 
 const secret = process.env.SECRET;
 const params = {
@@ -11,6 +10,7 @@ const params = {
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
 };
 
+const Strategy = passportJWT.Strategy;
 // JWT Strategy
 passport.use(
   new Strategy(params, function (payload, done) {
