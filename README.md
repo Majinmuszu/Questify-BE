@@ -1,1 +1,1 @@
-Tu będzie backendowa część projektu. 
+Backend aplikacji questify
