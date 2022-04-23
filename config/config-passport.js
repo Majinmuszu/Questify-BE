@@ -5,6 +5,7 @@ require("dotenv").config();
 const ExtractJWT = passportJWT.ExtractJwt;
 
 const secret = process.env.SECRET;
+
 const params = {
   secretOrKey: secret,
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
