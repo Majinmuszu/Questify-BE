@@ -1,14 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-require("./config/config-passport");
+const logger = require("morgan");
 require("dotenv").config();
-
+require("./config/config-passport");
 const app = express();
+
+const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 // parse application/json
 app.use(express.json());
+
+app.use(logger(formatsLogger));
+
 // cors
+
 app.use(cors());
 app.use(express.static("public"));
 const routerApi = require("./api");
